@@ -1,10 +1,12 @@
 console.log("The Service worker is ready!");
 
-chrome.windows.getCurrent((win) => {
-	const { top, height, left, width } = win;
-	console.log(`Top: ${top}, Height: ${height}, Left: ${left}, Width: ${width}`);
+function operationOverlay() {
+	chrome.windows.getCurrent((win) => {
+		const { top, height, left, width } = win;
+		console.log(
+			`Top: ${top}, Height: ${height}, Left: ${left}, Width: ${width}`
+		);
 
-	function operationOverlay() {
 		chrome.windows.create(
 			{
 				url: "src/ui/overlay.html",
@@ -18,8 +20,8 @@ chrome.windows.getCurrent((win) => {
 				console.log("Created window:", createdWindow);
 			}
 		);
-	}
-});
+	});
+}
 
 // const btn = document.querySelector("button");
 
