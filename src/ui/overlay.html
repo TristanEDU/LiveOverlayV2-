@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Live Overlay</title>
+		<link rel="stylesheet" href="overlay.css" />
+	</head>
+	<body>
+		<!-- App Shell -->
+		<div class="app">
+			<!-- Top Bar -->
+			<header class="topbar">
+				<div class="brand">
+					<div class="logo-dot"></div>
+					<span>Live Overlay</span>
+				</div>
+				<div class="top-actions">
+					<button class="icon-btn" id="minBtn" title="Minimize (hide overlay)">
+						–
+					</button>
+					<button class="icon-btn danger" id="closeBtn" title="Close overlay">
+						✕
+					</button>
+				</div>
+			</header>
+
+			<!-- URL Launcher / Command Palette -->
+			<section class="launcher">
+				<div class="url-wrap">
+					<input
+						id="urlInput"
+						class="url-input"
+						type="url"
+						placeholder="Paste a production URL (e.g., https://www.example.com)"
+						autocomplete="off" />
+					<button id="launchBtn" class="primary-btn">Launch Overlay</button>
+				</div>
+
+				<div class="chips" id="presetChips">
+					<!-- Example presets; edit/remove as you like -->
+					<button class="chip" data-url="https://www.apple.com">
+						apple.com
+					</button>
+					<button class="chip" data-url="https://www.nintendo.com">
+						nintendo.com
+					</button>
+					<button class="chip" data-url="https://www.wikipedia.org">
+						wikipedia.org
+					</button>
+				</div>
+
+				<p class="hint">
+					Tip: Press <kbd>Enter</kbd> to launch. Your last URL is remembered.
+				</p>
+			</section>
+
+			<!-- Controls Dock -->
+			<section class="dock">
+				<!-- Opacity -->
+				<div class="dock-item">
+					<label for="opacityRange">Opacity</label>
+					<input id="opacityRange" type="range" min="0" max="100" value="60" />
+					<span id="opacityVal">60%</span>
+				</div>
+
+				<!-- Invert -->
+				<div class="dock-item">
+					<label class="switch">
+						<input id="invertToggle" type="checkbox" />
+						<span class="slider"></span>
+					</label>
+					<span>Invert</span>
+				</div>
+
+				<!-- Grid -->
+				<div class="dock-item">
+					<label class="switch">
+						<input id="gridToggle" type="checkbox" />
+						<span class="slider"></span>
+					</label>
+					<span>Grid</span>
+				</div>
+
+				<!-- Click-through -->
+				<div class="dock-item">
+					<label class="switch">
+						<input id="passToggle" type="checkbox" />
+						<span class="slider"></span>
+					</label>
+					<span>Click-through</span>
+				</div>
+			</section>
+
+			<!-- Canvas Layers (what you see over the page) -->
+			<div id="veil" class="veil"></div>
+			<div id="gridLayer" class="grid" hidden></div>
+
+			<!-- Footer -->
+			<footer class="footer">
+				<small>v1.0 • ⌥O opacity • ⌥I invert • ⌥G grid • ⌥V toggle</small>
+			</footer>
+		</div>
+
+		<script src="overlay.js"></script>
+	</body>
+</html>

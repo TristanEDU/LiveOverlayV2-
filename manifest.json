@@ -7,7 +7,12 @@
   "action": {
     "default_popup": "hello.html"
   },
-  "permissions": [
-    "storage"
-  ]
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"], 
+      "js": ["popup.js"]
+    }
+  ],
+  "permissions": ["storage", "windows", "activeTab"]
+  
 }

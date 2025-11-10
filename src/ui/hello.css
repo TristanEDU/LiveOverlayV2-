@@ -1,0 +1,243 @@
+:root {
+	--bg-a: #070617;
+	--bg-b: #0f1630;
+	--accent: #7afcff;
+	--accent-2: #7b61ff;
+	--glass: rgba(255, 255, 255, 0.06);
+	--glass-border: rgba(255, 255, 255, 0.08);
+	--muted: rgba(255, 255, 255, 0.6);
+	--glass-blur: 14px;
+	--neon-glow: 0 8px 40px rgba(122, 252, 255, 0.12),
+		0 0 30px rgba(123, 97, 255, 0.06);
+	--radius: 14px;
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+		Roboto, "Helvetica Neue", Arial;
+}
+
+* {
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+}
+
+/* Popup constraints: keep the extension action popup within 800x600 and avoid a tiny strip */
+body.popup {
+	/* sensible default that stays within extension limits */
+	width: 360px;
+	min-width: 280px;
+	max-width: 800px;
+	max-height: 600px;
+	padding: 12px; /* reduce padding for compact popup */
+	margin: 0;
+	overflow: auto; /* scroll if content exceeds 600px height */
+	background: radial-gradient(
+			1200px 600px at 10% 20%,
+			rgba(122, 252, 255, 0.06),
+			transparent 8%
+		),
+		radial-gradient(
+			900px 500px at 90% 80%,
+			rgba(123, 97, 255, 0.04),
+			transparent 7%
+		),
+		linear-gradient(180deg, var(--bg-a), var(--bg-b));
+	color: #e9f7ff;
+	-webkit-font-smoothing: antialiased;
+	display: block; /* allow normal flow inside popup */
+}
+
+/* Stage: stretch to fill popup width so content doesn't collapse to a narrow column */
+.stage {
+	width: 100%;
+	max-width: 768px; /* keep within overall popup width */
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	align-items: stretch; /* ensure children take full width */
+}
+
+/* Brand */
+.brand {
+	text-align: center;
+	margin-bottom: 6px;
+}
+.title {
+	letter-spacing: 4px;
+	font-weight: 700;
+	margin: 0;
+	font-size: 20px;
+	color: var(--accent);
+	text-shadow: 0 6px 24px rgba(122, 252, 255, 0.06);
+}
+.subtitle {
+	margin: 6px 0 0;
+	color: var(--muted);
+	font-size: 13px;
+}
+
+/* Card tweaks: allow wrapping on narrow widths and let content grow */
+.card {
+	position: relative;
+	width: 100%;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.03),
+		rgba(255, 255, 255, 0.015)
+	);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius);
+	backdrop-filter: blur(var(--glass-blur)) saturate(130%);
+	-webkit-backdrop-filter: blur(var(--glass-blur)) saturate(130%);
+	padding: 18px;
+	box-shadow: 0 10px 40px rgba(2, 6, 23, 0.6);
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	flex-wrap: wrap; /* allow items to stack on narrow popups */
+}
+
+/* Ensure card content fills available width */
+.card-content {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	flex: 1 1 auto; /* grow to fill */
+	min-width: 0; /* allow children to shrink correctly */
+}
+.card-content h2 {
+	margin: 0;
+	font-size: 18px;
+	color: #fff;
+}
+.card-content p {
+	margin: 0;
+	color: var(--muted);
+	max-width: 560px;
+}
+
+/* Neon button */
+.neon-btn {
+	--pad-x: 18px;
+	--pad-y: 12px;
+	display: inline-flex;
+	gap: 10px;
+	align-items: center;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.02),
+		rgba(255, 255, 255, 0.006)
+	);
+	color: var(--accent);
+	border: 1px solid rgba(122, 252, 255, 0.14);
+	padding: var(--pad-y) var(--pad-x);
+	border-radius: 12px;
+	cursor: pointer;
+	font-weight: 600;
+	letter-spacing: 0.6px;
+	box-shadow: var(--neon-glow);
+	transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+	position: relative;
+	overflow: visible;
+	backdrop-filter: blur(6px);
+}
+
+/* icon color */
+.neon-btn .icon {
+	color: currentColor;
+	opacity: 0.95;
+}
+
+/* animated edge glow */
+.neon-btn::before,
+.neon-btn::after {
+	content: "";
+	position: absolute;
+	inset: -2px;
+	border-radius: 14px;
+	z-index: 0;
+	background: linear-gradient(
+		90deg,
+		rgba(122, 252, 255, 0.12),
+		rgba(123, 97, 255, 0.08)
+	);
+	filter: blur(14px);
+	opacity: 0.6;
+	transition: opacity 0.25s ease, transform 0.25s ease;
+	transform: scale(0.98);
+	pointer-events: none;
+}
+
+/* subtle moving highlight */
+.neon-btn::after {
+	inset: auto;
+	top: -40%;
+	left: -30%;
+	width: 160%;
+	height: 220%;
+	background: conic-gradient(
+		from 120deg,
+		rgba(122, 252, 255, 0.06),
+		rgba(123, 97, 255, 0.04),
+		transparent 40%
+	);
+	filter: blur(28px);
+	transform: translateX(-10%) rotate(-6deg);
+	opacity: 0.35;
+}
+
+/* hover / focus states */
+.neon-btn:hover,
+.neon-btn:focus {
+	transform: translateY(-3px) scale(1.01);
+	box-shadow: 0 16px 64px rgba(122, 252, 255, 0.14),
+		0 4px 20px rgba(123, 97, 255, 0.06);
+}
+.neon-btn:active {
+	transform: translateY(0) scale(0.995);
+	filter: brightness(0.98);
+}
+
+/* accessible focus ring */
+.neon-btn:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 4px rgba(122, 252, 255, 0.08),
+		0 18px 60px rgba(122, 252, 255, 0.08);
+}
+
+/* small responsiveness */
+@media (max-width: 640px) {
+	.card {
+		flex-direction: column;
+		gap: 18px;
+		align-items: flex-start;
+	}
+	.stage {
+		padding: 12px;
+	}
+}
+
+/* footer */
+.footer {
+	text-align: center;
+	color: var(--muted);
+	font-size: 12px;
+	margin-top: 8px;
+}
+
+/* reduce sizes slightly for popup mode */
+body.popup .title {
+	font-size: 18px;
+	letter-spacing: 3px;
+}
+body.popup .card-content h2 {
+	font-size: 16px;
+}
+body.popup .card {
+	padding: 14px;
+}
