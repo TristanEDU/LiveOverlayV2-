@@ -351,7 +351,7 @@ Acceptance:
 # Milestones Summary (You Can Check Off)
 
 - [x] Phase 0: Tools installed, basics reviewed
-- [ ] Phase 1: MV3 skeleton loads
+- [x] Phase 1: MV3 skeleton loads
 - [ ] Phase 2: Popup overlay matches base bounds on open
 - [ ] Phase 3: Overlay loads real production URL
 - [ ] Phase 4: Bounds mirror on move/resize
