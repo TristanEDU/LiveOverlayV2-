@@ -9,7 +9,7 @@ const ids = [
 	"opacityVal",
 	"invertToggle",
 	"gridToggle",
-	"#passToggle",
+	"passToggle",
 	"veil",
 	"gridLayer",
 	"minBtn",

@@ -10,7 +10,8 @@ function operationOverlay() {
 		chrome.windows.create(
 			{
 				url: "src/ui/overlay.html",
-				type: "popup",
+				// url: "https://example.com",
+				type: "normal",
 				height: height,
 				width: width,
 				top: top,
