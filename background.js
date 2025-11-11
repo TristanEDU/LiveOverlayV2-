@@ -1,27 +1,27 @@
 console.log("The Service worker is ready!");
 
-function operationOverlay() {
-	chrome.windows.getCurrent((win) => {
-		const { top, height, left, width } = win;
-		console.log(
-			`Top: ${top}, Height: ${height}, Left: ${left}, Width: ${width}`
-		);
+function operationOverlay(prodUrl) {
+  const urlToOpen = typeof prodUrl === "string" && prodUrl.length > 0 ? prodUrl : "https://example.com";
 
-		chrome.windows.create(
-			{
-				url: "src/ui/overlay.html",
-				// url: "https://example.com",
-				type: "normal",
-				height: height,
-				width: width,
-				top: top,
-				left: left,
-			},
-			(createdWindow) => {
-				console.log("Created window:", createdWindow);
-			}
-		);
-	});
+  chrome.windows.getCurrent((win) => {
+    const { top, height, left, width } = win;
+    console.log(`Top: ${top}, Height: ${height}, Left: ${left}, Width: ${width}`);
+
+    chrome.windows.create(
+      {
+        // url: "src/ui/overlay.html",
+        url: urlToOpen,
+        type: "popup",
+        height: height,
+        width: width,
+        top: top,
+        left: left,
+      },
+      (createdWindow) => {
+        console.log("Created window:", createdWindow);
+      }
+    );
+  });
 }
 
 // const btn = document.querySelector("button");
@@ -29,5 +29,7 @@ function operationOverlay() {
 // btn.addEventListener("click", operationOverlay);
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-	if (message.action === "openOverlay") operationOverlay();
+  if (message && message.action === "openOverlay") {
+    operationOverlay(message.url);
+  }
 });

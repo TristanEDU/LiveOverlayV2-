@@ -3,37 +3,81 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Futuristic UI</title>
+    <title>Live Overlay Launcher</title>
 		<link rel="stylesheet" href="src/ui/hello.css" />
 	</head>
 	<body class="popup">
-		<main class="stage">
-			<header class="brand">
-				<h1 class="title">LIVE OVERLAY</h1>
-				<p class="subtitle">A minimal futuristic UI demo</p>
-			</header>
-			<section class="card">
-				<div class="card-content">
-					<h2>Welcome</h2>
-					<p>Preview overlays, tweak settings, and launch — fast and sleek.</p>
-					<button class="neon-btn" id="launchBtn" aria-label="Launch overlay">
-						<svg
-							class="icon"
-							viewBox="0 0 24 24"
-							width="18"
-							height="18"
-							aria-hidden="true">
-							<path fill="currentColor" d="M3 12l18-9-9 18-2-7-7-2z"></path>
-						</svg>
-						<span>Launch</span>
-					</button>
-				</div>
-				<div class="holo-decor" aria-hidden="true"></div>
-			</section>
-			<footer class="footer">
-				<small>Built with glass & neon · 2025</small>
-			</footer>
-		</main>
+    <main class="stage">
+      <header class="brand">
+        <h1 class="title">LIVE OVERLAY</h1>
+        <p class="subtitle">Enter a URL and launch the overlay</p>
+      </header>
+
+      <!-- Launcher Card -->
+      <section class="card">
+        <div class="card-content">
+          <h2>Launch Overlay</h2>
+          <p>Paste a production URL below. Your last URL is remembered.</p>
+
+          <div class="url-wrap">
+            <input
+              id="urlInput"
+              class="url-input"
+              type="url"
+              placeholder="https://www.example.com"
+              autocomplete="off"
+              inputmode="url"
+              aria-label="Production URL" />
+            <button id="launchBtn" class="primary-btn" aria-label="Launch overlay">Launch</button>
+          </div>
+
+          <div class="chips" id="presetChips">
+            <button class="chip" data-url="https://www.apple.com">apple.com</button>
+            <button class="chip" data-url="https://www.nintendo.com">nintendo.com</button>
+            <button class="chip" data-url="https://www.wikipedia.org">wikipedia.org</button>
+          </div>
+
+          <p class="hint">Tip: Press Enter to launch.</p>
+        </div>
+      </section>
+
+      <!-- Controls Dock -->
+      <section class="dock">
+        <div class="dock-item">
+          <label for="opacityRange">Opacity</label>
+          <input id="opacityRange" type="range" min="0" max="100" value="60" />
+          <span id="opacityVal">60%</span>
+        </div>
+
+        <div class="dock-item">
+          <label class="switch">
+            <input id="invertToggle" type="checkbox" />
+            <span class="slider"></span>
+          </label>
+          <span>Invert</span>
+        </div>
+
+        <div class="dock-item">
+          <label class="switch">
+            <input id="gridToggle" type="checkbox" />
+            <span class="slider"></span>
+          </label>
+          <span>Grid</span>
+        </div>
+
+        <div class="dock-item">
+          <label class="switch">
+            <input id="passToggle" type="checkbox" />
+            <span class="slider"></span>
+          </label>
+          <span>Click-through</span>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <small>Built with glass & neon · 2025</small>
+      </footer>
+    </main>
 		<script src="popup.js"></script>
 	</body>
 </html>
