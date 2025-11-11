@@ -1,28 +1,28 @@
-# docs/ROADMAP.md
-
 # Roadmap (Consolidated)
 
-This roadmap embeds each phase’s goal, micro-steps, prompts, and acceptance. The linked phase files contain the same content plus even more detailed micro-steps and checklists.
+This roadmap summarizes each phase’s goal, core micro-steps, prompts, and acceptance. For the full deep-dive (including navigation, prerequisites, troubleshooting, and validation checklists), open the corresponding phase guide.
 
 Contents
-- Phase 00 — Foundations & MV3 Basics
-- Phase 01 — MV3 Skeleton (Hello Extension)
-- Phase 02 — Popup Overlay: Match Base Window Bounds
-- Phase 03 — Measure Content Area & Place Popup Exactly
-- Phase 04 — Live Bounds Mirroring (Move/Resize)
-- Phase 05 — Load a Real Production URL in the Overlay
-- Phase 06 — Zoom Mirroring
-- Phase 07 — Scroll Mirroring (Base → Overlay)
-- Phase 08 — Overlay Controls (Opacity, Invert, Grid, Click-Through, Nudge)
-- Phase 09 — Calibration (Per OS/Channel)
-- Phase 10 — Multi-Monitor/DPI & Performance QA
-- Phase 11 — Permissions & Options UI (Least Privilege)
-- Phase 12 — Packaging & Docs
-- Phase 13 (Optional) — Advanced Enhancements
+- [Phase 00 — Foundations & Setup](./PHASE-00.md)
+- [Phase 01 — MV3 Skeleton (Hello Extension)](./PHASE-01.md)
+- [Phase 02 — Popup Overlay: Match Base Window Bounds](./PHASE-02.md)
+- [Phase 03 — Measure Content Area & Place Popup Exactly](./PHASE-03.md)
+- [Phase 04 — Live Bounds Mirroring (Move/Resize)](./PHASE-04.md)
+- [Phase 05 — Load a Real Production URL in the Overlay](./PHASE-05.md)
+- [Phase 06 — Zoom Mirroring](./PHASE-06.md)
+- [Phase 07 — Scroll Mirroring (Base → Overlay)](./PHASE-07.md)
+- [Phase 08 — Overlay Controls (Opacity, Invert, Grid, Click-Through, Nudge)](./PHASE-08.md)
+- [Phase 09 — Calibration (Per OS/Channel)](./PHASE-09.md)
+- [Phase 10 — Multi-Monitor/DPI & Performance QA](./PHASE-10.md)
+- [Phase 11 — Permissions & Options UI (Least Privilege)](./PHASE-11.md)
+- [Phase 12 — Packaging & Docs](./PHASE-12.md)
+- [Phase 13 (Optional) — Advanced Enhancements](./PHASE-13.md)
 
-See also: `./PHASE-00.md` … `./PHASE-13.md`
+See also: [PHASE-00 → PHASE-13](./PHASE-00.md)
 
 ## Phase 00 — Foundations & Setup
+
+Full guide → [PHASE-00.md](./PHASE-00.md)
 
 Goal
 Be ready to build/run an MV3 extension and reload iteratively.
@@ -50,6 +50,8 @@ Acceptance
 
 ## Phase 01 — MV3 Skeleton (Hello Extension)
 
+Full guide → [PHASE-01.md](./PHASE-01.md)
+
 Goal
 Create a minimal MV3 extension that loads cleanly.
 
@@ -76,6 +78,8 @@ Acceptance
 
 ## Phase 02 — Popup Overlay: Match Base Window Bounds
 
+Full guide → [PHASE-02.md](./PHASE-02.md)
+
 Goal
 Clicking the toolbar opens a popup that matches the base window’s bounds (for now).
 
@@ -100,6 +104,8 @@ Acceptance
 - No visible gaps on your main monitor.
 
 ## Phase 03 — Measure Content Area & Place Popup Exactly
+
+Full guide → [PHASE-03.md](./PHASE-03.md)
 
 Goal
 Place the popup over the page content area (not the Chrome UI). Use content script measurement.
@@ -132,6 +138,8 @@ Acceptance
 
 ## Phase 04 — Live Bounds Mirroring (Move/Resize)
 
+Full guide → [PHASE-04.md](./PHASE-04.md)
+
 Goal
 Overlay tracks base window movements/resizes.
 
@@ -152,6 +160,8 @@ Acceptance
 - Alignment remains pixel-accurate.
 
 ## Phase 05 — Load a Real Production URL in the Overlay
+
+Full guide → [PHASE-05.md](./PHASE-05.md)
 
 Goal
 Open the production site directly in the popup (no iframe).
@@ -177,6 +187,8 @@ Acceptance
 
 ## Phase 06 — Zoom Mirroring
 
+Full guide → [PHASE-06.md](./PHASE-06.md)
+
 Goal
 Overlay tab zoom always matches base tab zoom.
 
@@ -199,6 +211,8 @@ Acceptance
 - Test 90%, 100%, 125% — no drift.
 
 ## Phase 07 — Scroll Mirroring (Base → Overlay)
+
+Full guide → [PHASE-07.md](./PHASE-07.md)
 
 Goal
 Keep overlay scrolled to the same coordinates as the base page.
@@ -224,6 +238,8 @@ Acceptance
 
 ## Phase 08 — Overlay Controls (Opacity, Invert, Grid, Click-Through, Nudge)
 
+Full guide → [PHASE-08.md](./PHASE-08.md)
+
 Goal
 Hands-on overlay controls for alignment finesse.
 
@@ -247,6 +263,8 @@ Acceptance
 
 ## Phase 09 — Calibration (Per OS/Channel)
 
+Full guide → [PHASE-09.md](./PHASE-09.md)
+
 Goal
 Store small per-OS/channel adjustments to perfect alignment.
 
@@ -265,6 +283,8 @@ Acceptance
 - After one calibration, overlays open pixel-true every time.
 
 ## Phase 10 — Multi-Monitor, DPI & Performance QA
+
+Full guide → [PHASE-10.md](./PHASE-10.md)
 
 Goal
 Bulletproof behavior across monitors and DPI; keep scroll sync smooth.
@@ -291,6 +311,8 @@ Acceptance
 
 ## Phase 11 — Permissions & Options UI (Least Privilege)
 
+Full guide → [PHASE-11.md](./PHASE-11.md)
+
 Goal
 Trim permissions; add a simple Options page for presets.
 
@@ -314,6 +336,8 @@ Acceptance
 
 ## Phase 12 — Packaging & Docs
 
+Full guide → [PHASE-12.md](./PHASE-12.md)
+
 Goal
 Anyone can install and use in under a minute.
 
@@ -336,6 +360,8 @@ Acceptance
 - Fresh install to pixel alignment in <60 seconds following README.
 
 ## Phase 13 (Optional) — Advanced Enhancements
+
+Full guide → [PHASE-13.md](./PHASE-13.md)
 
 Goal
 Add power features without hurting simplicity.

@@ -1,11 +1,28 @@
-# docs/PHASE-08.md
-
 # Phase 08 — Overlay Controls (Opacity, Invert, Grid, Click-Through, Nudge)
 
-Goal
+Navigation: [← Prev Phase 07](./PHASE-07.md) · [Roadmap](./ROADMAP.md) · [Next → Phase 09](./PHASE-09.md)
+
+## Scope & Depth
+
+- Wiring overlay controls with safe UX defaults
+- Hotkeys, persistence, and grid/opacity/invert behaviors
+- Troubleshooting click-through lockouts and visual artifacts
+- Deliverables and acceptance tests
+
+On this page
+- [Scope & Depth](#scope--depth)
+- [Goal](#goal)
+- [Micro-Steps](#micro-steps)
+- [Prerequisites](#prerequisites)
+- [Troubleshooting](#troubleshooting)
+- [Prompts](#prompts)
+- [Deliverable](#deliverable)
+- [Acceptance](#acceptance)
+
+## Goal
 Hands-on overlay controls for alignment finesse.
 
-Micro-Steps
+## Micro-Steps
 
 - UI Hooks (Overlay Page)
   - Opacity: range → update veil element’s `opacity`.
@@ -22,16 +39,25 @@ Micro-Steps
   - Clamp opacity bounds and show current value text next to the slider.
   - Debounce storage writes to avoid thrashing.
 
-Prompts
+## Prerequisites
+
+- Phase 07 complete (scroll mirroring stable).
+
+## Troubleshooting
+
+- Lost ability to click overlay UI: implement an emergency hotkey (e.g., Esc) to disable click-through.
+- Grid looks blurry: render with even multiples or use device-pixel-ratio aware background-size to reduce shimmer.
+
+## Prompts
 
 - “CSS filters invert”
 - “pointer-events none overlay”
 - “chrome.storage.local MV3”
 
-Deliverable
+## Deliverable
 
 - Toolbar visible; settings persist; quick toggles work.
 
-Acceptance
+## Acceptance
 
 - You can line up two pages in seconds using controls.
